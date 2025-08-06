@@ -1,20 +1,21 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { FilmeDetalhe } from "./pages/filme-detalhe";
-import { ListaFilmes } from "./pages/lista-filmes";
-import "./style/global.css";
-import { CriarFilme } from "./pages/criar-filme";
+import { Routes } from 'react-router-dom'
+import { AppRoutes } from './routes'
+import Header from './components/Header'
 
-function App() {
+export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<ListaFilmes />} />
-        <Route path="/filme/:id" element={<FilmeDetalhe />} />
-        <Route path="/cadastrar-filme" element={<CriarFilme />} />
-        <Route path="/editar-filme/:id" element={<CriarFilme />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    <div>
+      <Header />
+      <main className="p-4">
+        <Routes>
+          {AppRoutes}
+        </Routes>
+      </main>
+      <footer className="text-center text-gray-500 text-sm py-6">
+  © {new Date().getFullYear()} Rick and Morty API Explorer | Desenvolvido por você
+</footer>
+
+    </div>
+  )
 }
 
-export default App;
